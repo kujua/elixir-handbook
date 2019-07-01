@@ -1,0 +1,30 @@
+<div>
+   <table id="table" data-toggle="table" data-height="600" width="100%">
+    <thead>
+        <tr>
+            <th data-field="order_id">Order</th>
+            <th data-field="table_id">Table</th>
+            <th data-field="operate" data-formatter="operateFormatter" data-events="operateEvents"></th>
+        </tr>
+    </thead>
+</table>
+</div>
+
+<script>
+  function operateFormatter(value, row, index, field) {
+    return [
+      '<a class="like" href="javascript:void(0)" title="Change State">',
+      '<label>Change State</label>',
+      '</a>  ',
+
+    ].join('')
+  }
+
+  window.operateEvents = {
+    'click .state_prepare': function (e, value, row, index) {
+      window.channel.push("change_state_supervisor", {body: window.for_worker, orderid: row.order_id, newstate: "prepare"});
+    }
+  }
+
+  window.for_worker = "<%= assigns[:for_worker] %>";
+</script>
