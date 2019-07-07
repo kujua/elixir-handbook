@@ -1,1 +1,1 @@
-##### This repository contains example code for the upcoming book [Elixir Handbook](elixir-handbook.com). 
+##### This repository contains example code for the upcoming book [Elixir Handbook](https://elixir-handbook.com). 
